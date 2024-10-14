@@ -8,10 +8,6 @@
 
 🤖 Megabots provides State-of-the-art, production ready LLM apps made mega-easy, so you don't have to build them from scratch 🤯 Create a bot, now 🫵
 
-- 👉 Join us on Discord: https://discord.gg/zkqDWk5S7P
-- ✈️ Work is managed in this project: https://github.com/users/momegas/projects/5/views/2
-- 🤖 Documentation bot: https://huggingface.co/spaces/momegas/megabots
-
 **The Megabots library can be used to create bots that:**
 
 - ⌚️ are production ready, in minutes
@@ -161,8 +157,6 @@ milvus = vectorstore("milvus", host="localhost", port=19530)
 bot = bot("qna-over-docs", index="./examples/files/", vectorstore=milvus)
 ```
 
-## Exposing an API with [langchain-serve](https://github.com/jina-ai/langchain-serve)
-
 You can also expose the bot endpoints locally using langchain-serve. A sample file `api.py` is provided in the `megabots` folder.
 
 To expose the API locally, you can do 
@@ -180,25 +174,8 @@ lc-serve deploy jcloud megabots.api
 <details>
 <summary>Show command output</summary>
 
-```text
-╭──────────────┬──────────────────────────────────────────────────────────────────────────────────────╮
-│ App ID       │                                 langchain-dec14439a6                                 │
-├──────────────┼──────────────────────────────────────────────────────────────────────────────────────┤
-│ Phase        │                                       Serving                                        │
-├──────────────┼──────────────────────────────────────────────────────────────────────────────────────┤
-│ Endpoint     │                      https://langchain-dec14439a6.wolf.jina.ai                       │
-├──────────────┼──────────────────────────────────────────────────────────────────────────────────────┤
-│ App logs     │                               dashboards.wolf.jina.ai                                │
-├──────────────┼──────────────────────────────────────────────────────────────────────────────────────┤
-│ Swagger UI   │                    https://langchain-dec14439a6.wolf.jina.ai/docs                    │
-├──────────────┼──────────────────────────────────────────────────────────────────────────────────────┤
-│ OpenAPI JSON │                https://langchain-dec14439a6.wolf.jina.ai/openapi.json                │
-╰──────────────┴──────────────────────────────────────────────────────────────────────────────────────╯
-```
+
 </details>
-
-
-You can read more about langchain-serve [here](https://github.com/jina-ai/langchain-server).
 
 ## Exposing a Gradio chat-like interface
 
@@ -224,8 +201,6 @@ The `bot` function should serve as the starting point for creating and customisi
 | prompt      | A string template for the prompt, which defines the format of the question and context passed to the model. The template should include placeholder variables like so: `context`, `{question}` and in the case of using memory `history`.                                                  |
 | memory      | The type of memory to be used by the bot. Can be a string with the type of the memory or you can use `memory` factory function. Supported memories: `conversation-buffer`, `conversation-buffer-window`                                                                                    |
 | vectorstore | The vectorstore to be used for the index. Can be a string with the name of the databse or you can use `vectorstore` factory function. Supported DBs: `milvus`.                                                                                                                             |
-
-| sources | When `sources` is `True` the bot will also include sources in the response. A known [issue](https://github.com/hwchase17/langchain/issues/2858) exists, where if you pass a custom prompt with sources the code breaks. |
 
 ## How QnA bot works
 
@@ -264,9 +239,3 @@ sequenceDiagram
 
 ```
 
-## How to contribute?
-
-We welcome any suggestions, problem reports, and contributions!
-For any changes you would like to make to this project, we invite you to submit an [issue](https://github.com/momegas/megabots/issues).
-
-For more information, see [`CONTRIBUTING`](https://github.com/momegas/megabots/blob/main/CONTRIBUTING.md) instructions.
